@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at bottom, #0b132b, #000);
+    overflow: hidden;
+    color: white;
+}
+
+.title {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    z-index: 10;
+}
+
+/* ESCENA */
+.scene {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* FLOR */
+.flower {
+    position: relative;
+    width: 200px;
+    height: 350px;
+}
+
+/* RESPIRAR */
+.breathe {
+    animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+/* PÉTALOS */
+.petals {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, #ffd700 40%, transparent 41%);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.petals::before,
+.petals::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, #ffcc00 40%, transparent 41%);
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+/* CENTRO */
+.center {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: #5a3a1e;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* TALLO */
+.stem {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    width: 12px;
+    height: 200px;
+    background: linear-gradient(#3a7d44, #2f6b3a);
+    transform: translateX(-50%);
+}
+
+/* HOJAS */
+.leaf {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background: #3a7d44;
+    border-radius: 50%;
+    top: 180px;
+}
+
+.leaf.left {
+    left: -40px;
+    transform: rotate(-25deg);
+}
+
+.leaf.right {
+    right: -40px;
+    transform: rotate(25deg);
+}
+
+/* CORAZONES */
+.heart {
+    position: absolute;
+    bottom: 200px;
+    font-size: 20px;
+    color: #ff4d6d;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px) scale(1.4);
+        opacity: 0;
+    }
+}

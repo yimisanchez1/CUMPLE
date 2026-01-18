@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Extraño 🌻</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(180deg, 
+                #0a192f 0%, 
+                #1a365d 30%, 
+                #2c5282 60%, 
+                #4a90e2 100%);
+            overflow: hidden;
+            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Cielo con nubes sutiles */
+        .sky {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            filter: blur(30px);
+        }
+
+        /* Campo de flores en la distancia */
+        .field {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, 
+                rgba(34, 139, 34, 0.3) 0%, 
+                rgba(46, 139, 87, 0.2) 50%, 
+                transparent 100%);
+            z-index: 1;
+        }
+
+        /* Título principal */
+        .title-container {
+            position: absolute;
+            top: 5%;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.8rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 140, 0, 0.6),
+                0 0 60px rgba(255, 69, 0, 0.4);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            animation: titleGlow 4s infinite alternate;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes titleGlow {
+            0% { filter: brightness(1); transform: translateY(0); }
+            100% { filter: brightness(1.3); transform: translateY(-5px); }
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            animation: subtitleFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes subtitleFloat {
+            0%, 100% { opacity: 0.8; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-10px); }
+        }
+
+        /* Escena principal */
+        .scene {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        /* Suelo */
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, 
+                #8B4513 0%, 
+                #A0522D 30%, 
+                #D2691E 60%, 
+                #CD853F 100%);
+            z-index: 1;
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .ground-texture {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.4) 2px, transparent 3px),
+                radial-gradient(circle at 60% 70%, rgba(160, 82, 45, 0.3) 1px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(205, 133, 63, 0.3) 1px, transparent 2px);
+            background-size: 100px 100px, 150px 150px, 200px 200px;
+        }
+
+        /* GIRASOL HIPERREALISTA */
+        .sunflower-realistic {
+            position: absolute;
+            bottom: 150px;
+            width: 400px;
+            height: 600px;
+            z-index: 10;
+            animation: gentleWind 12s ease-in-out infinite;
+        }
+
+        @keyframes gentleWind {
+            0%, 100% { 
+                transform: 
+                    rotate(-0.5deg) 
+                    translateX(0) 
+                    scale(1); 
+            }
+            25% { 
+                transform: 
+                    rotate(0.5deg) 
+                    translateX(3px) 
+                    scale(1.002); 
+            }
+            50% { 
+                transform: 
+                    rotate(-0.3deg) 
+                    translateX(-2px) 
+                    scale(1.001); 
+            }
+            75% { 
+                transform: 
+                    rotate(0.3deg) 
+                    translateX(1px) 
+                    scale(1.003); 
+            }
+        }
+
+        /* Tallo con textura realista */
+        .realistic-stem {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 25px;
+            height: 450px;
+            background: 
+                linear-gradient(90deg, 
+                    #2E8B57 0%, 
+                    #3CB371 25%, 
+                    #228B22 50%, 
+                    #2E8B57 75%, 
+                    #3CB371 100%);
+            transform: translateX(-50%);
+            border-radius: 12px;
+            z-index: 5;
+            box-shadow: 
+                inset 3px 0 0 rgba(255,255,255,0.3),
+                inset -3px 0 0 rgba(0,0,0,0.3),
+                0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        /* Textura de vellosidades en el tallo */
+        .stem-hairs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .stem-hair {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            transform-origin: bottom;
+        }
+
+        /* Hojas realistas con venas */
+        .realistic-leaf {
+            position: absolute;
+            background: linear-gradient(135deg, 
+                #228B22 0%, 
+                #32CD32 30%, 
+                #228B22 70%, 
+                #006400 100%);
+            border-radius: 50% 0 50% 50%;
+            z-index: 4;
+            box-shadow: 
+                3px 3px 15px rgba(0,0,0,0.4),
+                inset 0 0 20px rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .leaf-left {
+            left: -100px;
+            bottom: 180px;
+            width: 120px;
+            height: 80px;
+            transform: rotate(-20deg);
+            animation: leafWaveLeft 8s ease-in-out infinite;
+        }
+
+        .leaf-right {
+            right: -100px;
+            bottom: 250px;
+            width: 140px;
+            height: 90px;
+            transform: rotate(20deg) scaleX(-1);
+            animation: leafWaveRight 8s ease-in-out infinite;
+        }
+
+        @keyframes leafWaveLeft {
+            0%, 100% { transform: rotate(-20deg) scale(1); }
+            50% { transform: rotate(-18deg) scale(1.05); }
+        }
+
+        @keyframes leafWaveRight {
+            0%, 100% { transform: rotate(20deg) scaleX(-1) scale(1); }
+            50% { transform: rotate(22deg) scaleX(-1) scale(1.05); }
+        }
+
+        /* Venas de las hojas */
+        .leaf-veins {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .vein {
+            position: absolute;
+            background: rgba(0, 100, 0, 0.4);
+            border-radius: 1px;
+        }
+
+        /* CAPITULUM (CENTRO DEL GIRASOL) - HIPERREALISTA */
+        .capitulum {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 160px;
+            height: 160px;
+            transform: translateX(-50%);
+            z-index: 8;
+        }
+
+        /* Disco floral (parte central con semillas) */
+        .floral-disc {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                #8B4513 0%, 
+                #A0522D 20%, 
+                #654321 40%, 
+                #3C241D 70%, 
+                #2C1810 100%);
+            box-shadow: 
+                inset 0 0 40px rgba(0,0,0,0.8),
+                0 10px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+
+        /* Patrón de semillas en espiral de Fibonacci */
+        .seed-spiral {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .seed {
+            position: absolute;
+            width: 12px;
+            height: 18px;
+            background: linear-gradient(135deg, 
+                #8B4513 0%, 
+                #D2691E 30%, 
+                #8B4513 70%, 
+                #654321 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform-origin: center;
+            box-shadow: 
+                inset 0 -2px 4px rgba(0,0,0,0.5),
+                0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* LIGULAS (PÉTALOS DEL GIRASOL) - REALISTAS */
+        .ligules-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 320px;
+            height: 320px;
+            transform: translateX(-50%);
+            z-index: 7;
+        }
+
+        .ligule {
+            position: absolute;
+            width: 140px;
+            height: 60px;
+            background: linear-gradient(135deg, 
+                transparent 0%, 
+                #FFD700 10%, 
+                #FFA500 40%, 
+                #FF8C00 70%, 
+                #FF6347 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform-origin: center 80px;
+            box-shadow: 
+                inset 0 -5px 15px rgba(255, 140, 0, 0.5),
+                0 3px 10px rgba(0,0,0,0.3);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        /* Brillo en los pétalos */
+        .ligule::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            right: 20%;
+            height: 30%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.4) 50%, 
+                transparent 100%);
+            border-radius: 50%;
+            filter: blur(3px);
+        }
+
+        /* CORAZONES MEJORADOS */
+        .floating-heart {
+            position: absolute;
+            font-size: 32px;
+            opacity: 0;
+            z-index: 2;
+            filter: 
+                drop-shadow(0 0 10px currentColor)
+                drop-shadow(0 0 20px rgba(255, 105, 180, 0.5));
+            pointer-events: none;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: 
+                    translateY(0) 
+                    rotate(0deg) 
+                    scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: 
+                    translateY(-120vh) 
+                    rotate(360deg) 
+                    scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Polen flotante */
+        .pollen {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        /* Rayos de sol */
+        .sun-rays {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 200px;
+            background: linear-gradient(to top, 
+                transparent 0%, 
+                rgba(255, 215, 0, 0.3) 30%, 
+                rgba(255, 165, 0, 0.1) 70%, 
+                transparent 100%);
+            transform-origin: bottom center;
+        }
+
+        /* Luz ambiental */
+        .ambient-light {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 30%, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                rgba(255, 140, 0, 0.05) 30%, 
+                transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Mensajes flotantes */
+        .message-bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px 25px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: #FFD700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 50;
+            opacity: 0;
+            animation: messageAppear 8s ease-in-out infinite;
+        }
+
+        @keyframes messageAppear {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            20%, 80% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Info panel */
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            color: white;
+            z-index: 100;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .heart-counter {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .heart-counter i {
+            color: #ff6b6b;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Control de interacción */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .control-btn {
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            color: #FFD700;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title { font-size: 3rem; }
+            .sunflower-realistic { transform: scale(0.7); }
+            .info-panel { top: 10px; right: 10px; padding: 10px; }
+            .controls { bottom: 10px; left: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cielo -->
+    <div class="sky" id="sky"></div>
+    
+    <!-- Campo de flores -->
+    <div class="field"></div>
+    
+    <!-- Suelo -->
+    <div class="ground">
+        <div class="ground-texture"></div>
+    </div>
+    
+    <!-- Luz ambiental -->
+    <div class="ambient-light"></div>
+    
+    <!-- Rayos de sol -->
+    <div class="sun-rays" id="sunRays"></div>
+    
+    <!-- Títulos -->
+    <div class="title-container">
+        <h1 class="main-title">Te Extraño</h1>
+        <div class="subtitle">Cada pétalo guarda un recuerdo tuyo</div>
+    </div>
+    
+    <!-- Panel de información -->
+    <div class="info-panel">
+        <div class="heart-counter">
+            <i class="fas fa-heart"></i>
+            <span id="heartCount">0</span> corazones
+        </div>
+    </div>
+    
+    <!-- Controles -->
+    <div class="controls">
+        <button class="control-btn" onclick="createHeartStorm()">🌧️ Lluvia de Corazones</button>
+        <button class="control-btn" onclick="toggleWind()">🌬️ Viento Suave</button>
+    </div>
+    
+    <!-- Escena principal -->
+    <div class="scene">
+        <!-- Girasol hiperrealista -->
+        <div class="sunflower-realistic">
+            <!-- Tallo con vellosidades -->
+            <div class="realistic-stem">
+                <div class="stem-hairs" id="stemHairs"></div>
+            </div>
+            
+            <!-- Hojas con venas -->
+            <div class="realistic-leaf leaf-left">
+                <div class="leaf-veins" id="leftLeafVeins"></div>
+            </div>
+            <div class="realistic-leaf leaf-right">
+                <div class="leaf-veins" id="rightLeafVeins"></div>
+            </div>
+            
+            <!-- Pétalos (ligulas) -->
+            <div class="ligules-container" id="ligulesContainer"></div>
+            
+            <!-- Centro del girasol (capitulum) -->
+            <div class="capitulum">
+                <div class="floral-disc">
+                    <div class="seed-spiral" id="seedSpiral"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuración avanzada
+        const config = {
+            // Corazones
+            heartTypes: ['❤', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍', '💖', '💗', '💓', '💞', '💕', '💟', '❣️', '💔', '❤️‍🔥', '❤️‍🩹', '💘'],
+            heartInterval: 350,
+            maxHearts: 250,
+            
+            // Girasol
+            liguleCount: 32,      // Pétalos
+            seedCount: 144,       // Semillas (número de Fibonacci)
+            stemHairCount: 80,    // Vellosidades del tallo
+            
+            // Efectos
+            pollenCount: 30,
+            cloudCount: 8,
+            rayCount: 12
+        };
+
+        // Estado
+        let heartCounter = 0;
+        let hearts = [];
+        let windActive = true;
+        let windStrength = 1;
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            createSky();
+            createSunRays();
+            createStemHairs();
+            createLeafVeins();
+            createLigules();
+            createSeedSpiral();
+            createPollen();
+            startHeartSystem();
+            startWindEffect();
+        });
+
+        // Crear nubes en el cielo
+        function createSky() {
+            const sky = document.getElementById('sky');
+            
+            for (let i = 0; i < config.cloudCount; i++) {
+                const cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                
+                // Tamaño y posición aleatoria
+                const size = 200 + Math.random() * 300;
+                cloud.style.width = `${size}px`;
+                cloud.style.height = `${size * 0.3}px`;
+                cloud.style.left = `${Math.random() * 100}%`;
+                cloud.style.top = `${20 + Math.random() * 40}%`;
+                
+                // Animación
+                const duration = 60 + Math.random() * 60;
+                cloud.style.animation = `gentleWind ${duration}s linear infinite`;
+                cloud.style.animationDelay = `${Math.random() * 30}s`;
+                
+                sky.appendChild(cloud);
+            }
+        }
+
+        // Crear rayos de sol
+        function createSunRays() {
+            const sunRays = document.getElementById('sunRays');
+            
+            for (let i = 0; i < config.rayCount; i++) {
+                const ray = document.createElement('div');
+                ray.classList.add('ray');
+                
+                // Distribución circular
+                const angle = (i / config.rayCount) * 360;
+                ray.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+                
+                // Animación sutil
+                ray.style.animation = `titleGlow ${4 + Math.random() * 4}s ease-in-out infinite`;
+                ray.style.animationDelay = `${Math.random() * 2}s`;
+                
+                sunRays.appendChild(ray);
+            }
+        }
+
+        // Crear vellosidades del tallo
+        function createStemHairs() {
+            const stemHairs = document.getElementById('stemHairs');
+            
+            for (let i = 0; i < config.stemHairCount; i++) {
+                const hair = document.createElement('div');
+                hair.classList.add('stem-hair');
+                
+                // Posición aleatoria en el tallo
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                
+                hair.style.left = `${left}%`;
+                hair.style.top = `${top}%`;
+                
+                // Rotación aleatoria
+                const rotation = -30 + Math.random() * 60;
+                hair.style.transform = `rotate(${rotation}deg)`;
+                
+                // Longitud variable
+                const length = 10 + Math.random() * 10;
+                hair.style.height = `${length}px`;
+                
+                stemHairs.appendChild(hair);
+            }
+        }
+
+        // Crear venas en las hojas
+        function createLeafVeins() {
+            createVeinsForLeaf('leftLeafVeins', 120, 80);
+            createVeinsForLeaf('rightLeafVeins', 140, 90);
+        }
+
+        function createVeinsForLeaf(leafId, width, height) {
+            const leafVeins = document.getElementById(leafId);
+            const veinCount = 15 + Math.floor(Math.random() * 10);
+            
+            for (let i = 0; i < veinCount; i++) {
+                const vein = document.createElement('div');
+                vein.classList.add('vein');
+                
+                // Venas principales
+                if (i < 3) {
+                    // Vena central
+                    if (i === 0) {
+                        vein.style.width = '3px';
+                        vein.style.height = `${height * 0.7}px`;
+                        vein.style.left = '50%';
+                        vein.style.top = '10%';
+                        vein.style.transform = 'translateX(-50%)';
+                    }
+                    // Venas laterales principales
+                    else {
+                        vein.style.width = '2px';
+                        vein.style.height = `${height * 0.5}px`;
+                        vein.style.left = i === 1 ? '30%' : '70%';
+                        vein.style.top = '20%';
+                        const angle = i === 1 ? -30 : 30;
+                        vein.style.transform = `rotate(${angle}deg)`;
+                    }
+                }
+                // Venas secundarias
+                else {
+                    vein.style.width = '1px';
+                    vein.style.height = `${20 + Math.random() * 30}px`;
+                    vein.style.left = `${20 + Math.random() * 60}%`;
+                    vein.style.top = `${30 + Math.random() * 40}%`;
+                    vein.style.transform = `rotate(${-30 + Math.random() * 60}deg)`;
+                }
+                
+                leafVeins.appendChild(vein);
+            }
+        }
+
+        // Crear pétalos (ligulas) en espiral
+        function createLigules() {
+            const container = document.getElementById('ligulesContainer');
+            const liguleCount = config.liguleCount;
+            const radius = 100; // Radio para los pétalos
+            
+            for (let i = 0; i < liguleCount; i++) {
+                const ligule = document.createElement('div');
+                ligule.classList.add('ligule');
+                
+                // Distribución en espiral áurea
+                const angle = i * 137.508 * Math.PI / 180; // Ángulo áureo
+                const distance = Math.sqrt(i / liguleCount) * radius;
+                
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+                
+                ligule.style.left = `calc(50% + ${x}px)`;
+                ligule.style.top = `calc(50% + ${y}px)`;
+                
+                // Rotación hacia afuera
+                const rotation = (angle * 180 / Math.PI) + 90;
+                ligule.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+                
+                // Variación de tamaño y color
+                const scale = 0.8 + Math.random() * 0.4;
+                ligule.style.transform += ` scale(${scale})`;
+                
+                // Variación de color
+                const hue = 40 + Math.random() * 20; // Entre amarillo y naranja
+                ligule.style.background = `linear-gradient(135deg, 
+                    transparent 0%, 
+                    hsl(${hue}, 100%, 60%) 10%, 
+                    hsl(${hue - 10}, 100%, 50%) 40%, 
+                    hsl(${hue - 20}, 100%, 40%) 70%, 
+                    hsl(${hue - 30}, 100%, 30%) 100%)`;
+                
+                // Animación individual
+                const duration = 4 + Math.random() * 6;
+                ligule.style.animation = `leafWaveLeft ${duration}s ease-in-out infinite`;
+                ligule.style.animationDelay = `${Math.random() * 2}s`;
+                
+                container.appendChild(ligule);
+            }
+        }
+
+        // Crear espiral de semillas (Fibonacci)
+        function createSeedSpiral() {
+            const spiral = document.getElementById('seedSpiral');
+            const seedCount = config.seedCount;
+            
+            for (let i = 0; i < seedCount; i++) {
+                const seed = document.createElement('div');
+                seed.classList.add('seed');
+                
+                // Espiral de Fibonacci
+                const phi = (1 + Math.sqrt(5)) / 2; // Proporción áurea
+                const angle = i * 2 * Math.PI / (phi * phi);
+                const distance = 15 * Math.sqrt(i);
+                
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+                
+                seed.style.left = `calc(50% + ${x}px)`;
+                seed.style.top = `calc(50% + ${y}px)`;
+                
+                // Rotación según posición
+                const seedRotation = angle * 180 / Math.PI;
+                seed.style.transform = `translate(-50%, -50%) rotate(${seedRotation}deg)`;
+                
+                // Variación de tamaño
+                const size = 0.7 + Math.random() * 0.6;
+                seed.style.width = `${12 * size}px`;
+                seed.style.height = `${18 * size}px`;
+                
+                // Color variable
+                const brown = Math.floor(100 + Math.random() * 100);
+                seed.style.background = `linear-gradient(135deg, 
+                    rgb(139, ${brown - 50}, 19) 0%, 
+                    rgb(210, ${brown}, 30) 30%, 
+                    rgb(139, ${brown - 30}, 19) 70%, 
+                    rgb(101, ${brown - 70}, 33) 100%)`;
+                
+                spiral.appendChild(seed);
+            }
+        }
+
+        // Crear polen flotante
+        function createPollen() {
+            const scene = document.querySelector('.scene');
+            
+            for (let i = 0; i < config.pollenCount; i++) {
+                const pollen = document.createElement('div');
+                pollen.classList.add('pollen');
+                
+                // Posición alrededor del girasol
+                pollen.style.left = `${45 + Math.random() * 10}%`;
+                pollen.style.bottom = `${200 + Math.random() * 100}px`;
+                
+                // Animación flotante
+                const duration = 8 + Math.random() * 12;
+                const delay = Math.random() * 5;
+                
+                pollen.style.animation = `
+                    heartFloat ${duration}s linear infinite,
+                    twinkle ${2 + Math.random() * 3}s ease-in-out infinite
+                `;
+                pollen.style.animationDelay = `${delay}s, ${Math.random() * 2}s`;
+                
+                scene.appendChild(pollen);
+            }
+        }
+
+        // Sistema de corazones
+        function startHeartSystem() {
+            // Primer corazón inmediato
+            setTimeout(createHeart, 500);
+            
+            // Intervalo regular
+            setInterval(createHeart, config.heartInterval);
+            
+            // Corazones al hacer clic
+            document.addEventListener('click', function(e) {
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => createHeartAt(e.clientX, e.clientY), i * 100);
+                }
+            });
+            
+            // Lluvia periódica
+            setInterval(() => createHeartStorm(10), 45000);
+        }
+
+        // Crear un corazón
+        function createHeart(x = null, y = null) {
+            if (hearts.length >= config.maxHearts) {
+                const oldestHeart = hearts.shift();
+                if (oldestHeart && oldestHeart.parentNode) {
+                    oldestHeart.parentNode.removeChild(oldestHeart);
+                }
+            }
+            
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            
+            // Tipo de corazón aleatorio
+            const heartType = config.heartTypes[Math.floor(Math.random() * config.heartTypes.length)];
+            heart.innerHTML = heartType;
+            
+            // Tamaño
+            const size = 24 + Math.random() * 48;
+            heart.style.fontSize = `${size}px`;
+            
+            // Posición
+            if (x && y) {
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+            } else {
+                // Posición alrededor del girasol
+                const offsetX = Math.random() * 400 - 200;
+                heart.style.left = `calc(50% + ${offsetX}px)`;
+                heart.style.bottom = '200px';
+            }
+            
+            // Color
+            const colors = [
+                '#ff6b6b', '#ff8e8e', '#ffb8b8', 
+                '#ff9a00', '#ffcc00', '#ffd700',
+                '#ff99cc', '#ff66b2', '#ff3366',
+                '#ff69b4', '#ff1493', '#c71585'
+            ];
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Animación
+            const duration = 5 + Math.random() * 4;
+            const startX = parseFloat(heart.style.left);
+            const drift = (Math.random() - 0.5) * 200;
+            
+            heart.style.animation = `heartFloat ${duration}s linear forwards`;
+            
+            // Añadir al DOM
+            document.querySelector('.scene').appendChild(heart);
+            
+            // Contador
+            heartCounter++;
+            document.getElementById('heartCount').textContent = heartCounter;
+            
+            // Guardar referencia
+            hearts.push(heart);
+            
+            // Eliminar después
+            setTimeout(() => {
+                const index = hearts.indexOf(heart);
+                if (index > -1) hearts.splice(index, 1);
+                if (heart.parentNode) heart.parentNode.removeChild(heart);
+            }, duration * 1000);
+        }
+
+        // Crear corazón en posición específica
+        function createHeartAt(x, y) {
+            createHeart(x, y);
+        }
+
+        // Lluvia de corazones
+        function createHeartStorm(count = 20) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => createHeart(), i * 50);
+            }
+            
+            // Efecto visual
+            document.querySelector('.main-title').style.animation = 'none';
+            setTimeout(() => {
+                document.querySelector('.main-title').style.animation = 'titleGlow 4s infinite alternate';
+            }, 100);
+        }
+
+        // Efecto de viento
+        function startWindEffect() {
+            const sunflower = document.querySelector('.sunflower-realistic');
+            
+            function applyWind() {
+                if (!windActive) return;
+                
+                const now = Date.now() / 1000;
+                const windX = Math.sin(now * 0.5) * windStrength * 0.5;
+                const windRotate = Math.sin(now * 0.3) * windStrength * 0.3;
+                const windScale = 1 + Math.sin(now * 0.7) * 0.002 * windStrength;
+                
+                sunflower.style.transform = `
+                    translateX(${windX}px)
+                    rotate(${windRotate}deg)
+                    scale(${windScale})
+                `;
+                
+                requestAnimationFrame(applyWind);
+            }
+            
+            applyWind();
+        }
+
+        // Alternar viento
+        function toggleWind() {
+            windActive = !windActive;
+            const btn = document.querySelector('.control-btn:nth-child(2)');
+            btn.textContent = windActive ? '🌬️ Viento Suave' : '🌪️ Viento Detenido';
+            
+            if (!windActive) {
+                document.querySelector('.sunflower-realistic').style.transform = 'none';
+            }
+        }
+
+        // Crear mensajes flotantes
+        const messages = [
+            "Eres mi sol en días grises",
+            "Cada latido te nombra",
+            "Tu ausencia pesa como el aire",
+            "En cada pétalo, tu nombre",
+            "El tiempo sin ti es eterno",
+            "Eres mi razón para brillar",
+            "Te guardo en cada recuerdo",
+            "Mi corazón late por ti"
+        ];
+
+        setInterval(() => {
+            const message = document.createElement('div');
+            message.classList.add('message-bubble');
+            message.textContent = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Posición
+            const left = 20 + Math.random() * 60;
+            const bottom = 30 + Math.random() * 40;
+            
+            message.style.left = `${left}%`;
+            message.style.bottom = `${bottom}%`;
+            
+            // Duración aleatoria
+            const duration = 6 + Math.random() * 6;
+            message.style.animationDuration = `${duration}s`;
+            
+            document.querySelector('.scene').appendChild(message);
+            
+            // Eliminar después
+            setTimeout(() => {
+                if (message.parentNode) {
+                    message.parentNode.removeChild(message);
+                }
+            }, duration * 1000);
+        }, 10000);
+    </script>
+</body>
+</html>
